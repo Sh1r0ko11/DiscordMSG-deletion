@@ -21,6 +21,9 @@ A modern, ultra-sleek Discord message deletion tool with a beautiful React-based
 
 ## 🚀 Quick Start
 
+## Screenshot: 
+![Screenshot 2025-07-07 220852](https://github.com/user-attachments/assets/460813a3-59fc-4b97-928f-dbf53e67f97d)
+
 ### Prerequisites
 
 - **Python 3.8+** - [Download here](https://www.python.org/downloads/)
