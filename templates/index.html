@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex01 Delete Tool - Professional Edition</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-bolt"></i>
+                    <span>Ex01 Tool</span>
+                </div>
+                <div class="status-indicator online">
+                    <div class="status-dot"></div>
+                    <span>Online</span>
+                </div>
+            </div>
+
+            <!-- Friends Section -->
+            <div class="friends-section">
+                <div class="section-header">
+                    <i class="fas fa-users"></i>
+                    <span>Friends</span>
+                    <span class="friends-count" id="friendsCount">0</span>
+                </div>
+                
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="friendSearch" placeholder="Search friends...">
+                        <button class="search-clear" id="searchClear">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="friends-list" id="friendsList">
+                    <div class="loading-friends">
+                        <div class="spinner"></div>
+                        <span>Loading friends...</span>
+                    </div>
+                </div>
+
+                <button class="refresh-btn" id="refreshFriends">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Refresh Friends</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="main-header">
+                <div class="header-title">
+                    <h1>
+                        <i class="fas fa-bolt animated-icon"></i>
+                        DiscordMSG Deletion Tool
+                    </h1>
+                    <p> Message Management </p>
+                </div>
+                <div class="header-actions">
+                    <div class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuration Panel -->
+            <div class="config-panel">
+                <div class="panel-header">
+                    <i class="fas fa-cog"></i>
+                    <h2>Target Configuration</h2>
+                </div>
+                
+                <div class="config-grid">
+                    <div class="config-item">
+                        <label for="channelId">Channel/DM ID</label>
+                        <div class="input-group">
+                            <input type="text" id="channelId" placeholder="Enter channel or DM ID">
+                            <button class="input-btn" id="pasteBtn" title="Paste from clipboard">
+                                <i class="fas fa-paste"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="config-item">
+                        <label>Time Range</label>
+                        <div class="time-options">
+                            <div class="time-option active" data-value="30m">30m</div>
+                            <div class="time-option" data-value="1h">1h</div>
+                            <div class="time-option" data-value="2h">2h</div>
+                            <div class="time-option" data-value="6h">6h</div>
+                            <div class="time-option" data-value="12h">12h</div>
+                            <div class="time-option" data-value="24h">24h</div>
+                            <div class="time-option" data-value="48h">48h</div>
+                            <div class="time-option danger" data-value="All">All</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <div class="panel-header">
+                    <i class="fas fa-gamepad"></i>
+                    <h2>Control Panel</h2>
+                </div>
+                
+                <div class="control-buttons">
+                    <button class="btn btn-primary" id="startBtn">
+                        <i class="fas fa-rocket"></i>
+                        <span>Initialize DiscordMSG Protocol</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                    
+                    <button class="btn btn-danger" id="stopBtn" disabled>
+                        <i class="fas fa-stop"></i>
+                        <span>Emergency Stop</span>
+                    </button>
+                </div>
+
+                <div class="status-display">
+                    <div class="status-item">
+                        <div class="status-icon ready">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <span id="statusText">System Ready</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Monitor -->
+            <div class="activity-panel">
+                <div class="panel-header">
+                    <i class="fas fa-chart-line"></i>
+                    <h2>Live Activity Monitor</h2>
+                    <div class="monitor-controls">
+                        <button class="btn-icon" id="clearLog" title="Clear log">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <button class="btn-icon" id="exportLog" title="Export log">
+                            <i class="fas fa-download"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="log-container">
+                    <div class="log-content" id="logContent">
+                        <div class="log-entry success">
+                            <span class="log-time">[20:30:15]</span>
+                            <span class="log-message">✅ DiscordMSG Deletion Tool initialized successfully</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="confirmModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Confirm Action</h3>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="warning-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <p id="confirmMessage">Are you sure you want to proceed?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="modalCancel">Cancel</button>
+                <button class="btn btn-danger" id="modalConfirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

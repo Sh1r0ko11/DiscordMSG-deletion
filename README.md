@@ -19,9 +19,6 @@ A modern, ultra-sleek Discord message deletion tool with a beautiful React-based
 - **🔒 Safe & Secure**: Only deletes YOUR messages, never others'
 - **🖥️ Desktop App**: Runs as a standalone desktop application
 
-## Screenshot:
-![Screenshot 2025-07-07 220852](https://github.com/user-attachments/assets/f51045d0-4be5-4799-a029-7e44b1b9257b)
-
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -235,8 +232,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you encounter any issues or have questions:
 
-1. Check the INSTALLATION_GUIDE.txt
-2. Review existing [Issues](https://github.com/Sh1r0ko11/DiscordMSG-deletion/issues)
+1. Check the [Installation Guide](INSTALLATION_GUIDE.txt)
+2. Review existing [Issues](https://github.com/yourusername/discordmsg-deletion-tool/issues)
 3. Create a new issue with detailed information
 
 ---
