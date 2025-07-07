@@ -235,8 +235,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you encounter any issues or have questions:
 
-1. Check the [Installation Guide](INSTALLATION_GUIDE.txt)
-2. Review existing [Issues](https://github.com/yourusername/discordmsg-deletion-tool/issues)
+1. Check the INSTALLATION_GUIDE.txt
+2. Review existing [Issues](https://github.com/Sh1r0ko11/DiscordMSG-deletion/issues)
 3. Create a new issue with detailed information
 
 ---
