@@ -19,10 +19,11 @@ A modern, ultra-sleek Discord message deletion tool with a beautiful React-based
 - **🔒 Safe & Secure**: Only deletes YOUR messages, never others'
 - **🖥️ Desktop App**: Runs as a standalone desktop application
 
-## 🚀 Quick Start
-
 ## Screenshot: 
 ![Screenshot 2025-07-07 220852](https://github.com/user-attachments/assets/460813a3-59fc-4b97-928f-dbf53e67f97d)
+
+## 🚀 Quick Start
+
 
 ### Prerequisites
 
